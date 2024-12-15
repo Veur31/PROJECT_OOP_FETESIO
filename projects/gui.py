@@ -66,7 +66,7 @@ def add_new_student():
     global text_entry, label_text, label_error
     for content in content_contain.winfo_children():
         content.destroy()
-    #adding label in the content
+
     Label(content_contain, text="", font=("Century Gothic", 20, "bold"), fg="black", bg="#1e1d1d").grid(row=0, column=0, columnspan=2,  pady=100, padx=200)
     Label(content_contain, text="Add student", font=("Century Gothic", 30, "bold"), fg="#00BFFF", bg="#1e1d1d").grid(row=1, column=0,
     columnspan=2, sticky="nsew", pady=10, padx=200)
@@ -74,7 +74,7 @@ def add_new_student():
     label_error.grid(row=8, column=0,columnspan=2, sticky="ew", pady=10)
     label_text = ["Name", "Age", "Student ID", "Email", "Phone Number"]
     text_entry = []
-    #looping through all the label to add Entry
+
     for i in range(len(label_text)):
         Label(content_contain, text = f"{label_text[i]}:", font = ("Century Gothic", 14, "bold"), anchor = "e", width=14, bg="#1e1d1d",fg="#00BFFF").grid(row= i+2, column=0)
         text = Entry(content_contain, width= 38, font=("Century Gothic", 14, "bold"))
@@ -85,7 +85,7 @@ def add_new_student():
 
 
 
-#checking the entry for inputs
+
 def check(label_error):
     error = []
     for i in range(len(text_entry)):
@@ -128,12 +128,12 @@ def view_other_information():
 def view_all_stu():
     for content in content_contain.winfo_children():
         content.destroy()
-    # Clear existing content
+
 
     Label(content_contain, text="", font=("Century Gothic", 14),bg="#1e1d1d").grid(row = 0, column= 0, columnspan =2, pady= 90, padx=315)
     Label(content_contain, text="All registered\nInformation", font=("Century Gothic", 25,"bold"), bg="#1e1d1d", fg="#00BFFF").grid(row = 1, column= 0, columnspan =2, pady= 50, padx=150)
 
-    # Retrieve student information
+
     info = print_all.printStudentInfo()
     scroll = scrolledtext.ScrolledText(content_contain, wrap=tk.WORD, font=("Century Gothic", 14),bg="#2e2c2c",fg="#00BFFF", height= 10, width= 50)
     scroll.grid(row = 2, column=0, sticky="ew", padx=80, pady=10)
@@ -144,7 +144,7 @@ def view_all_stu():
     
 
         
-#login frame
+
 login_frame = Frame(win, bg="#1e1d1d", relief="solid")
 login_frame.pack(fill="both", expand=True)
 float_frame = Frame(login_frame, bg="#1e1d1d", padx=20, pady =10, relief="solid")
@@ -160,7 +160,6 @@ error= Label(float_frame, text = "", font=("Century Gothic", 20), fg="red", bg="
 error.pack()
 
 
-#main_manu frame
 main_frame =Frame(win, bg="#1e1d1d")
 Label(main_frame, text="", font=("Century Gothic", 20), padx=20).pack()
 logout_btn = Button(main_frame, text="Logout", width=20, font=("Century Gothic", 20), command=logout)
@@ -169,7 +168,7 @@ btn_txt = ["View information","Add Student","View Other student information", "V
 btn_txt1 = []
 Func = [view_information, add_new_student, view_other_information, view_all_stu] 
 
-#geometry
+
 win.geometry(f"1050x800+{(win.winfo_screenwidth()-1050)//2}+{(win.winfo_screenheight()-800)//2}")
 menu_contain = Frame(win, borderwidth=1, bg="#1e1d1d", relief="sunken")
 
@@ -177,7 +176,7 @@ content_contain = Frame(win, borderwidth=1, bg="#1e1d1d")
 
 content_contain.grid_columnconfigure(0,weight=1)
 
-#buttons na ilalagay sa menu
+
 Label(menu_contain, text="Main Menu", font=("Roboto", 30),fg="#00BFFF", bg = '#1e1d1d', padx=20, border=10).grid(row=0, column=0, pady=50)
 for i, txt in enumerate(btn_txt): 
     btns = Button(menu_contain, anchor="center", width=30, text=btn_txt[i], font=("Roboto", 14), padx=10, pady=35, bg="#8ddbf5", border=10)
